@@ -10,51 +10,6 @@ module.exports = yeoman.Base.extend({
   constructor: function () {
     yeoman.Base.apply(this, arguments);
 
-    this.processDirectory = function (source, destination, iteratee) {
-      var self = this;
-      var root = path.isAbsolute(source) ? source : path.join(self.sourceRoot(), source);
-      var files = expandFiles('**', {dot: true, cwd: root});
-      var dest, src;
-
-      files.forEach(function (f) {
-        var filteredFile = filterFile(f);
-        if (self.basename) {
-          filteredFile.name = filteredFile.name.replace('basename', self.basename);
-        }
-        if (self.name) {
-          filteredFile.name = filteredFile.name.replace('name', self.name);
-        }
-        var name = filteredFile.name;
-        var copy = false, stripped;
-
-        src = path.join(root, f);
-        dest = path.join(destination, name);
-
-        dest = iteratee(dest);
-
-        if (path.basename(dest).indexOf('_') === 0) {
-          stripped = path.basename(dest).replace(/^_/, '');
-          dest = path.join(path.dirname(dest), stripped);
-        }
-
-        if (path.basename(dest).indexOf('!') === 0) {
-          stripped = path.basename(dest).replace(/^!/, '');
-          dest = path.join(path.dirname(dest), stripped);
-          copy = true;
-        }
-
-        if (templateIsUsable(self, filteredFile)) {
-          if (copy) {
-            self.fs.copy(src, dest);
-          } else {
-            self.filePath = dest;
-            self.fs.copyTpl(src, dest, self);
-            delete self.filePath;
-          }
-        }
-      });
-    };
-
     this.argument('name', {
       desc: 'Provide a name for the project',
       type: String,
@@ -107,20 +62,16 @@ module.exports = yeoman.Base.extend({
 
       done();
     }.bind(this));
-  }
-
-  ,
+  },
 
   writing: function () {
     let self = this;
 
     this.sourceRoot(path.join(__dirname, './templates'));
-    this
     this.processDirectory('.', '.', function (dest) {
       return dest;
     });
-  }
-  ,
+  },
 
   install: function () {
     if (!this.options['skip-install']) {
