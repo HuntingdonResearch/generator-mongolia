@@ -1,6 +1,6 @@
 {
   "name": "generator-mongolia",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Generates Mongoose-based REST APIs",
   "homepage": "http://huntingdonresearch.com/tools/generator-mongolia",
   "author": {
