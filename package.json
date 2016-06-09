@@ -9,7 +9,10 @@
     "url": "http://chavli.com"
   },
   "files": [
-    "generators"
+    "generators/app",
+    "generators/attribute",
+    "generators/model",
+    "generators/route"
   ],
   "main": "generators/index.js",
   "keywords": [
@@ -21,6 +24,7 @@
   "dependencies": {
     "chalk": "^1.0.0",
     "generator-node": "^1.10.1",
+    "git-config": "0.0.7",
     "lodash": "^4.11.2",
     "yeoman-generator": "^0.22.0",
     "yosay": "^1.0.2"
