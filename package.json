@@ -23,6 +23,9 @@
   ],
   "dependencies": {
     "chalk": "^1.0.0",
+    "escodegen": "^1.8.1",
+    "esprima": "^3.0.0",
+    "estools": "^2.2.0",
     "generator-node": "^1.10.1",
     "git-config": "0.0.7",
     "lodash": "^4.11.2",

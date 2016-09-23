@@ -136,14 +136,25 @@ module.exports = yeoman.Base.extend({
             if (this.isGithubHosted && !!this.githubAccount) {
                 options.githubAccount = this.githubAccount;
             }
-
-            this.composeWith('node:readme', {
-                options: options
-            });
         }
     },
 
     writing: function () {
+        try {
+            this.fs.copyTpl(this.templatePath('README.md'), this.destinationPath('README.md'), {
+                project: {
+                    name: this.projectName,
+                    description: this.projectDescription
+                },
+                author: {
+                    name: this.authorName,
+                    email: this.authorEmail,
+                    url: this.authorUrl
+                }
+            });
+        } catch (e) {
+            this.log(e);
+        }
     },
 
     conflicts: function () {
