@@ -1,0 +1,17 @@
+{
+  "name": "<%= projectName %>-api",
+  "version": "<%= projectVersion %>",
+  "private": true,
+  "scripts": {
+    "start": "nodemon"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "<%= projectName %>-api-config": "file:../api-config",
+    "<%= projectName %>-api-middlewares": "file:../api-middlewares",
+    "<%= projectName %>-api-models": "file:../api-models",
+    "<%= projectName %>-api-routes": "file:../api-routes",
+    "express": "^4.15.4",
+    "lodash": "^4.17.4"
+  }
+}

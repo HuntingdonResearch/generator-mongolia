@@ -7,15 +7,15 @@ const Generator = require('yeoman-generator');
 class MongoliaGenerator extends Generator {
   prompting() {
     const prompts = [{
-      type: 'confirm',
-      name: 'generateDummyFile',
-      message: 'Would you like to generator the dummy file?',
-      default: false
+      type: 'input',
+      name: 'projectName',
+      message: 'What is the name of your project?',
+      required: true
     }, {
-      type: 'confirm',
-      name: 'installDependencies',
-      message: 'Would you like to install dependencies?',
-      default: false
+      type: 'input',
+      name: 'projectVersion',
+      message: 'What is the version number of your project?',
+      default: '0.0.0'
     }];
 
     return this.prompt(prompts).then(props => {
@@ -24,18 +24,17 @@ class MongoliaGenerator extends Generator {
   }
 
   writing() {
-    if (this.props.generateDummyFile) {
-      this.fs.copyTpl(this.templatePath('dummyfile.txt'), this.destinationPath('dummyfile.txt'), {
-        names: [
-        ]
-      });
-    }
+    this.fs.copyTpl(this.templatePath('api/_index.js'), this.destinationPath('api/index.js'), {
+      projectName: this.props.projectName,
+      projectVersion: this.props.projectVersion
+    });
+    this.fs.copyTpl(this.templatePath('api/_package.json'), this.destinationPath('api/package.json'), {
+      projectName: this.props.projectName,
+      projectVersion: this.props.projectVersion
+    });
   }
 
   install() {
-    if (this.props.installDependencies) {
-      this.installDependencies();
-    }
   }
 }
 
