@@ -1,17 +1,34 @@
 'use strict';
-var path = require('path');
-var assert = require('yeoman-assert');
-var helpers = require('yeoman-test');
+
+let path = require('path');
+let assert = require('yeoman-assert');
+let helpers = require('yeoman-test');
 
 describe('generator-mongolia:app', () => {
   beforeAll(() => {
-    return helpers.run(path.join(__dirname, '../generators/app'))
-      .withPrompts({someAnswer: true});
   });
 
   it('creates files', () => {
-    assert.file([
-      'dummyfile.txt'
-    ]);
+    return helpers.run(path.join(__dirname, '../generators/app'))
+      .withPrompts({
+        generateDummyFile: true,
+        installDependencies: true
+      }).then(() => {
+        assert.file([
+          'dummyfile.txt'
+        ]);
+      });
+  });
+
+  it('does not create files', () => {
+    return helpers.run(path.join(__dirname, '../generators/app'))
+      .withPrompts({
+        generateDummyFile: false,
+        installDependencies: true
+      }).then(() => {
+        assert.noFile([
+          'dummyfile.txt'
+        ]);
+      });
   });
 });
