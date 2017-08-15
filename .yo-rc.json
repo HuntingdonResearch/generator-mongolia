@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Umar F Khawaja",
+      "authorEmail": "khawaja.umar.farooq@gmail.com",
+      "authorUrl": "http://chavli.com"
+    }
+  }
+}

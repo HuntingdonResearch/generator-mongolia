@@ -1,5 +1,5 @@
 # generator-mongolia [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> Generates Mongoose-based REST APIs
+> Generates a REST API based on MongoDB using mongoose
 
 ## Installation
 
@@ -25,12 +25,12 @@ yo mongolia
 
 ## License
 
-MIT © [Umar Farooq Khawaja](http://chavli.com)
+MPL-2.0 © [Umar F Khawaja](http://chavli.com)
 
 
 [npm-image]: https://badge.fury.io/js/generator-mongolia.svg
 [npm-url]: https://npmjs.org/package/generator-mongolia
-[travis-image]: https://travis-ci.org/khawajaumarfarooq/generator-mongolia.svg?branch=master
-[travis-url]: https://travis-ci.org/khawajaumarfarooq/generator-mongolia
-[daviddm-image]: https://david-dm.org/khawajaumarfarooq/generator-mongolia.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/khawajaumarfarooq/generator-mongolia
+[travis-image]: https://travis-ci.org/HuntingdonResearch/generator-mongolia.svg?branch=master
+[travis-url]: https://travis-ci.org/HuntingdonResearch/generator-mongolia
+[daviddm-image]: https://david-dm.org/HuntingdonResearch/generator-mongolia.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/HuntingdonResearch/generator-mongolia
