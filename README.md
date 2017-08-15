@@ -25,7 +25,7 @@ yo mongolia
 
 ## License
 
-MPL-2.0 © [Umar F Khawaja](http://chavli.com)
+MIT © [Umar F Khawaja](http://chavli.com)
 
 
 [npm-image]: https://badge.fury.io/js/generator-mongolia.svg
