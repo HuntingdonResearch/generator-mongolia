@@ -1,7 +1,7 @@
 'use strict';
 
 const Generator = require('yeoman-generator');
-// Const chalk = require('chalk');
+// const chalk = require('chalk');
 // const yosay = require('yosay');
 
 class MongoliaGenerator extends Generator {
@@ -25,10 +25,10 @@ class MongoliaGenerator extends Generator {
 
   writing() {
     if (this.props.generateDummyFile) {
-      this.fs.copy(
-        this.templatePath('dummyfile.txt'),
-        this.destinationPath('dummyfile.txt')
-      );
+      this.fs.copyTpl(this.templatePath('dummyfile.txt'), this.destinationPath('dummyfile.txt'), {
+        names: [
+        ]
+      });
     }
   }
 
