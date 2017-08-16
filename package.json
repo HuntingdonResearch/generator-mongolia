@@ -33,6 +33,11 @@
   },
   "dependencies": {
     "chalk": "^2.1.0",
+    "escodegen": "^1.8.1",
+    "esprima": "^4.0.0",
+    "estemplate": "^0.5.1",
+    "estraverse": "^4.2.0",
+    "lodash": "^4.17.4",
     "yeoman-generator": "^1.0.0",
     "yosay": "^2.0.0"
   },
